@@ -30,7 +30,6 @@ def cartpage(request):
   obj = Products.objects.filter(id=ide)
   if(request.method == "POST"):
     return render(request , 'cart.html' , {"obj":obj})
-  else:
-    return render(request , 'cart.html')
+
 
     

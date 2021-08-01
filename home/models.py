@@ -8,7 +8,7 @@ class Products(models.Model):
   Category = models.CharField(max_length=20)
   Colors = models.CharField(max_length=100)
   Available = models.BooleanField();
+  Description = models.CharField(max_length=500)
 
   def __str__(self):
       return "{} {}{}".format(self.Name , self.Currency ,self.Price)
-  
