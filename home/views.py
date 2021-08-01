@@ -16,10 +16,21 @@ def login(request):
 
 def signup(request):
   if(request.method == 'POST'):
-    username = request.post.get('username');
-    firstname = request.post.get('firstname');
-    lastname = request.post.get('lastname');
-    password = request.post.get('password');
+    username = request.POST.get('username');
+    firstname = request.POST.get('firstname');
+    lastname = request.POST.get('lastname');
+    password = request.POST.get('password');
     # user=User.objects.create_user(username=username,first_name=firstname,last_name=lastname,password=password,email=email)
   else:
     return render(request , 'signup.html')
+
+def cartpage(request):
+  ide = request.POST['id']
+  ide = int(ide)
+  obj = Products.objects.filter(id=ide)
+  if(request.method == "POST"):
+    return render(request , 'cart.html' , {"obj":obj})
+  else:
+    return render(request , 'cart.html')
+
+    

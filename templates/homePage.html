@@ -56,7 +56,13 @@
               <h6>
                 <p>{{products.Colors}}</p>
               </h6>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+
+              <form action="cartpage" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{products.id}}">
+                <button type="submit" class="btn btn-primary">Add To Cart</button>
+              </form>
+
             </div>
           </div>
         </div>
