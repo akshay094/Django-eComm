@@ -13,6 +13,3 @@ class Products(models.Model):
   def __str__(self):
       return "{} {}{}".format(self.Name , self.Currency ,self.Price)
 
-class Orders(Products):
-  Address = models.CharField(max_length=300)
-  Mobile_No = models.CharField(max_length=10)

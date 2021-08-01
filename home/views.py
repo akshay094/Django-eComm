@@ -19,6 +19,7 @@ def login(request):
         auth.login(request , user)
         return redirect('/')
   else:
+    messages.info(request , "Login Successfull!")
     return render(request , 'login.html')
 
 
@@ -30,9 +31,9 @@ def signup(request):
     password = request.POST.get('password');
     user=User.objects.create_user(username=username,first_name=firstname,last_name=lastname,password=password)
     user.save()
-    messages.info(request ,"Signup Successful!")
     return redirect('/')
   else:
+    messages.info(request ,"Signup Successful!")
     return render(request , 'signup.html')
 
 def cartpage(request):
@@ -44,5 +45,6 @@ def cartpage(request):
 
 def logout(request):
   auth.logout(request)
+  messages.info(request , "Logged Out")
   return redirect('/')
     
