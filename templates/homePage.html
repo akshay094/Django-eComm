@@ -96,7 +96,13 @@
                 <form action="cartpage" method="POST">
                   {% csrf_token %}
                   <input type="hidden" name="id" value="{{products.id}}">
+                  {%if products.Available%}
                   <button type="submit" class="btn btn-primary">Add To Cart</button>
+                  <p class="text-capitalize float-left py-3">Hurry!! only few left</p>
+                  {%else%}
+                  <button type="submit" disabled class="btn btn-primary">Add To Cart</button>
+                  <p class="text-capitalize float-left py-3">Out of stock</p>
+                  {%endif%}
                 </form>
                 {% endif%}
               </div>
